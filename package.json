@@ -1,0 +1,12 @@
+{
+  "name": "sprintbot",
+  "version": "1.0.0",
+  "description": "This Discord bot is a tool for writers that helps them do coordinated writing sprints with their friends.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
