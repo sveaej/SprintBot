@@ -5,11 +5,18 @@ const {token} = require('./config.json');
 
 const client = new Client({intents: []});
 
+/*
+Get the commands from the command files so that they can
+be executed (for their crimes).
+*/
+
+//Collection seems to be a Discord.js thing
 client.commands = new Collection();
 
+//Get the command directory
 const commandsPath = path.join(__dirname, 'commands');
-
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
 for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
@@ -28,6 +35,7 @@ client.on(Events.InteractionCreate, async interaction => {
         console.error(`No command matching ${interaction.commandName} was found`);
         return;
     }
+    //Execute the command
     try {
         await command.execute(interaction);
     }
